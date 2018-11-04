@@ -1,0 +1,313 @@
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+/********************************************/
+.logo{
+  width: 100px;
+  background:rgba(255,255,255,0.9);
+  display: inline-block;
+}
+.nav{
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  
+}
+/*******************************************************/
+.content{
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  
+  background: #eee;
+}
+.footer{
+  height: 80px;
+}
+/********************************************************/
+.banner-container{
+  
+  height: 100vh;
+  
+  
+}
+.home-container{
+  background: url(../images/homepage.png) center center;
+  background-size: 100% 100%;
+}
+.description{
+  width: 100%;
+  padding: 50px 10%; 
+  text-align: center;
+}
+.description h1{
+  font-size:48px;
+}
+.description p{
+  text-align: left;
+  font-size:24px;
+}
+.investHome{
+  background:url(../images/INVESTHOME.png) center center;
+  background-size: 100% 100%;
+}
+.issuetHome{
+  background:url(../images/ISSUEHOME.png) center center;
+  background-size: 100% 100%;
+}
+.img-holder{
+  width: 100%;
+  background:white;
+  height: 150px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20%;
+  box-sizing: border-box;
+}
+.img-holder img{
+  width: 150px;
+  height: 150px;
+}
+.component-holder{
+  box-sizing: border-box;
+  padding: 100px 10%;
+  width: 100%;
+}
+.second-component-holder{
+  box-sizing: border-box;
+  padding: 0 10px;
+  width: 100%;
+  min-height: 600px;
+}
+.main-component-holder{
+  box-sizing: border-box;
+  padding: 100px 5%;
+  width: 100%;
+  
+}
+.home-start-container{
+  float: right;
+  margin-top: 140px;
+  width: 400px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+.home-start-container h1{
+  font-size: 48px;
+  padding-bottom: 30px;
+}
+.to-register{
+  width: 80%;
+  height: 50px;
+  line-height: 30px;
+  font-size: 24px;
+  color:white;
+  background: rgba(66,66,66,0.78);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.to-register a{
+  color:inherit;
+  text-decoration: none;
+}
+.invest-start-container{
+  margin-top: 120px;
+  width: 400px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+.issue-start-container{
+  float: right;
+  margin-top: 120px;
+  width: 400px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+.issue-start-container h1, .invest-start-container h1{
+  color:white;
+  font-size: 36px;
+}
+
+/***********************************************/
+.filters-container{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  color:#000;
+  margin:10px 0;
+}
+.filters-container .filters-title{
+  border-left: 5px solid #F9C032;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+.single-filter{
+  box-sizing: border-box;
+  padding: 5px 20px;
+  display: flex;
+}
+.single-filter-title{
+  width: 10%;
+}
+/***************************************************/
+.portfolio-main-container{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  color:#000;
+  margin:20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.portfolio-info-container{
+  width: 60%;
+  box-sizing: border-box;
+  border-right: 0.5px solid rgba(0,0,0,0.2);
+  padding: 5px 0;
+}
+.bid-container{
+  width: 39%;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+.portfolio-title{
+  height: 30px;
+  line-height: 30px;
+  border-left: 5px solid #F9C032;
+  padding-left: 5px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.portfolio-title .bigger-info-item{
+
+}
+.bid-input-container{
+  width: 100%;
+  max-width: 300px;
+  margin:0 auto;
+}
+.bid-input-container button{
+  width: 100%;
+}
+/***********************************/
+.tabPanel-container{
+  padding: 5px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.info-container{
+  width:100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.information-container{
+  max-width:700px;
+  background: rgba(16,142,233,0.1);
+  margin:20px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+.pic-holder{
+  width:100px;
+  height: 100px;
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+.information-row{
+  width: 100%;
+  display: flex;
+}
+.information-label{
+  width: 100px;
+  color:grey;
+  padding: 0 10px;
+}
+.information-label-2{
+  width: 150px;
+  color:grey;
+  padding: 0 10px;
+}
+.para-container{
+  max-width:700px;
+  margin:20px auto;
+}
+/************************************/
+.popup-container{
+  width:400px;
+  height:300px;
+  position:absolute;
+  z-index:1;
+  background:#fff;
+  top:0;bottom: 0;left:0;right:0;
+  margin:auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+/***************************************************/
+.assets-main-container{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  color:#000;
+  margin:20px 0;
+}
+.assets-main-container-info{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.assets-main-container-left{
+  width: 60%;
+  box-sizing: border-box;
+  border-right: 0.5px solid rgba(0,0,0,0.2);
+  padding: 5px 0;
+}
+.assets-main-container-right{
+  width: 39%;
+  padding: 5px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.assets-main-container-right button{
+  display: block;
+  width: 100px;
+}

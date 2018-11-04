@@ -1,0 +1,80 @@
+.register-panel {
+    width:80%;
+    margin:0 auto;
+    background: #eee;
+    box-sizing: border-box;
+    padding: 20px 50px;
+}
+.register-title{
+    line-height: 0.5;
+    color:#063960;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+.register-title h1,p{
+    color:#063960;
+}
+.steps-content{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 300px;
+    box-sizing: border-box;
+    padding: 20px 0;
+}
+.radio-holder{
+    width: 60%;
+    margin:30px auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+    text-align: center;
+}
+.radio-label{
+    padding: 20px 0;
+    font-size: 24px;
+    width: auto;
+    text-align: left;
+}
+.radio-holder p{
+    margin-top: 5px;
+    height: 50px;
+    color:grey;
+}
+.register-info-container{
+    width: 60%;
+    margin:30px auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+.register-info-container .register-form {
+    box-sizing: border-box;
+    max-width: 350px;
+    margin: 0 auto;
+    height: 100%;
+    /* border-radius: 5px; */
+    background: #eee;
+}
+.register-form .register-form-button {
+    width: 100%;
+    margin:0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+.send-data-panel{
+    text-align: center;
+    box-sizing: border-box;
+    padding: 80px;
+}
+.send-data-panel i{
+    font-size: 50px;
+}
+.send-data-panel h3{
+    color:#063960;
+    line-height: 1.5;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.send-data-panel p{
+    color:#063960;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
