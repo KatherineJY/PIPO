@@ -20,8 +20,8 @@ class LoginPanel extends Component {
         return(
             <div className="login-panel">
                 <div className="login-description">
-                    <h1>Built for developers</h1>
-                    <p>XXX is ... platform inspired by ,,,,,,,,,XXX is ... platform inspired by ,,,,,,,,,XXX is ... platform inspired by ,,,,,,,,,XXX is ... platform inspired by ,,,,,,,,,</p>
+                    <h1>Built for Investors & Issuers</h1>
+                    <p></p>
                 </div>
                 <LoginForm closeLogin={this.props.closeLogin} loginInfo={this.props.loginInfo} setLoginInfo={this.props.setLoginInfo}></LoginForm>
                 <Button ghost shape="circle"size="small" icon="close" onClick={this.closeLoginPanel} />
