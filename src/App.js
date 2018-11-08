@@ -24,8 +24,7 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-    let tempLoginInfo = storage.get("loginInfo");
-    console.log(tempLoginInfo);
+    const tempLoginInfo = storage.get("loginInfo");
     if (tempLoginInfo != null) {
       this.setState({
         loginInfo: tempLoginInfo
@@ -46,109 +45,110 @@ class App extends Component {
   };
 
   setLoginInfo = loginInfo => {
-    this.setState({
-      loginInfo: loginInfo
-    });
+    //TODO 什么情况下可以这样子省略 同名？？
+    //this.setState({loginInfo: loginInfo});
+    this.setState({ loginInfo });
   };
 
   render() {
     return (
-      <div>
-        <Router>
-          <Layout>
-            <Header className="nav">
-              <Menu
-                theme="dark"
-                mode="horizontal"
-                defaultSelectedKeys={["0"]}
-                style={{ lineHeight: "64px" }}
-              >
-                {router.map((value, key) => {
-                  if (value.inMenu && value.exact) {
-                    return (
-                      <Menu.Item key={key}>
-                        <Link exact="true" to={value.path}>
-                          <Icon
-                            type="deployment-unit"
-                            theme="outlined"
-                            spin="true"
-                          />
-                          {value.title}
-                        </Link>
-                      </Menu.Item>
-                    );
-                  } else if (value.inMenu) {
-                    return (
-                      <Menu.Item key={key}>
-                        <Link to={value.path}>{value.title}</Link>
-                      </Menu.Item>
-                    );
-                  }
-                })}
-              </Menu>
-              {this.state.loginInfo.isLogin ? (
-                <NavHasLogined
-                  setLoginInfo={this.setLoginInfo}
-                  loginInfo={this.state.loginInfo}
-                />
-              ) : (
-                <Button type="primary" size="large" onClick={this.toLoginIn}>
-                  SIGN UP!
-                </Button>
-              )}
-            </Header>
-            <Content className="content">
+      <Router>
+        <Layout>
+          <Header className="nav">
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={["0"]}
+              style={{ lineHeight: "64px" }}
+            >
               {router.map((value, key) => {
-                if (value.exact) {
+                if (value.inMenu && value.exact) {
                   return (
-                    <Route
-                      key={key}
-                      exact
-                      path={value.path}
-                      render={props => (
-                        <value.component {...props} routes={value.routes} />
-                      )}
-                    />
-                  );
-                } else {
-                  return (
-                    <Route
-                      key={key}
-                      path={value.path}
-                      render={props => (
-                        <value.component
-                          {...props}
-                          setLoginInfo={this.setLoginInfo}
-                          loginInfo={this.state.loginInfo}
-                          routes={value.routes}
+                    <Menu.Item key={key}>
+                      <Link exact="true" to={value.path}>
+                        <Icon
+                          type="deployment-unit"
+                          theme="outlined"
+                          spin="true"
                         />
-                      )}
-                    />
+                        {value.title}
+                      </Link>
+                    </Menu.Item>
+                  );
+                } else if (value.inMenu) {
+                  return (
+                    <Menu.Item key={key}>
+                      <Link to={value.path}>{value.title}</Link>
+                    </Menu.Item>
                   );
                 }
+                else {
+                  return null;
+                }
               })}
-              {this.state.showLoginPanel && (
-                <LoginPanel
-                  setLoginInfo={this.setLoginInfo}
-                  loginInfo={this.state.loginInfo}
-                  closeLogin={this.closeLogin}
-                />
-              )}
-            </Content>
-            <Footer
-              style={{
-                textAlign: "center",
-                background: "#001529",
-                color: "#fff",
-                fontSize: "16px",
-                lineHeight: "32px"
-              }}
-            >
-              --Investus Presents--
-            </Footer>
-          </Layout>
-        </Router>
-      </div>
+            </Menu>
+            {this.state.loginInfo.isLogin ? (
+              <NavHasLogined
+                setLoginInfo={this.setLoginInfo}
+                loginInfo={this.state.loginInfo}
+              />
+            ) : (
+              <Button type="primary" size="large" onClick={this.toLoginIn}>
+                SIGN UP!
+              </Button>
+            )}
+          </Header>
+          <Content className="content">
+            {router.map((value, key) => {
+              if (value.exact) {
+                return (
+                  <Route
+                    key={key}
+                    exact
+                    path={value.path}
+                    render={props => (
+                      <value.component {...props} routes={value.routes} />
+                    )}
+                  />
+                );
+              } else {
+                return (
+                  <Route
+                    key={key}
+                    path={value.path}
+                    render={props => (
+                      <value.component
+                        {...props}
+                        setLoginInfo={this.setLoginInfo}
+                        loginInfo={this.state.loginInfo}
+                        routes={value.routes}
+                      />
+                    )}
+                  />
+                );
+              }
+            })}
+            {this.state.showLoginPanel && (
+              <LoginPanel
+                setLoginInfo={this.setLoginInfo}
+                loginInfo={this.state.loginInfo}
+                closeLogin={this.closeLogin}
+              />
+            )}
+          </Content>
+          <Footer
+            style={{
+              textAlign: "center",
+              background: "#001529",
+              color: "#fff",
+              fontSize: "16px",
+              lineHeight: "32px"
+            }}
+          >
+            --Investus Presents--
+          </Footer>
+        </Layout>
+      </Router>
     );
   }
 }

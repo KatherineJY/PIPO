@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Breadcrumb, Checkbox, Table, Progress, Button, message,Tooltip,InputNumber,Icon } from 'antd'
-import { Link } from 'react-router-dom'
-
-import dataAccess from '../../model/dataAccess'
+import { Breadcrumb, Checkbox, Table, Button, message,Tooltip,InputNumber,Icon } from 'antd';
+import { Link } from 'react-router-dom';
+import dataAccess from '../../model/dataAccess';
 
 const CheckboxGroup = Checkbox.Group;
 
