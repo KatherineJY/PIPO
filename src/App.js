@@ -26,22 +26,16 @@ class App extends Component {
   componentDidMount = () => {
     const tempLoginInfo = storage.get("loginInfo");
     if (tempLoginInfo != null) {
-      this.setState({
-        loginInfo: tempLoginInfo
-      });
+      this.setState({ loginInfo: tempLoginInfo });
     }
   };
 
   toLoginIn = () => {
-    this.setState({
-      showLoginPanel: true
-    });
+    this.setState({ showLoginPanel: true });
   };
 
   closeLogin = () => {
-    this.setState({
-      showLoginPanel: false
-    });
+    this.setState({ showLoginPanel: false });
   };
 
   setLoginInfo = loginInfo => {
@@ -51,6 +45,9 @@ class App extends Component {
   };
 
   render() {
+    const { loginInfo, showLoginPanel } = this.state;
+    const { isLogin } = loginInfo;
+
     return (
       <Router>
         <Layout>
@@ -61,80 +58,95 @@ class App extends Component {
               defaultSelectedKeys={["0"]}
               style={{ lineHeight: "64px" }}
             >
-              {router.map((value, key) => {
-                if (value.inMenu && value.exact) {
-                  return (
-                    <Menu.Item key={key}>
-                      <Link exact="true" to={value.path}>
-                        <Icon
-                          type="deployment-unit"
-                          theme="outlined"
-                          spin="true"
-                        />
-                        {value.title}
-                      </Link>
-                    </Menu.Item>
+              {
+                router.map((value, key) => {
+                  if (value.inMenu&&value.exact) {
+                    return (
+                      <Menu.Item key={value.title}>
+                        <Link exact="true" to={value.path}>
+                          <Icon
+                            type="deployment-unit"
+                            theme="outlined"
+                            spin="true"
+                          />
+                          {value.title}
+                        </Link>
+                      </Menu.Item>
+                    );
+                  } else if (value.inMenu) {
+                    return (
+                      <Menu.Item key={value.title}>
+                        <Link to={value.path}>
+                          {value.title}
+                        </Link>
+                      </Menu.Item>
                   );
-                } else if (value.inMenu) {
-                  return (
-                    <Menu.Item key={key}>
-                      <Link to={value.path}>{value.title}</Link>
-                    </Menu.Item>
-                  );
-                }
-                else {
+                  } else {
                   return null;
-                }
-              })}
+                  }
+              })
+            }
             </Menu>
-            {this.state.loginInfo.isLogin ? (
-              <NavHasLogined
-                setLoginInfo={this.setLoginInfo}
-                loginInfo={this.state.loginInfo}
-              />
-            ) : (
-              <Button type="primary" size="large" onClick={this.toLoginIn}>
-                SIGN UP!
-              </Button>
-            )}
+            {
+              isLogin
+                ? (
+                  <NavHasLogined
+                    setLoginInfo={this.setLoginInfo}
+                    loginInfo={this.state.loginInfo}
+                  />
+                ) 
+                : (
+                  <Button 
+                    type="primary" 
+                    size="large" 
+                    onClick={this.toLoginIn}
+                  >
+                  SIGN UP!
+                  </Button>
+                )
+            }
           </Header>
           <Content className="content">
-            {router.map((value, key) => {
-              if (value.exact) {
-                return (
-                  <Route
-                    key={key}
-                    exact
-                    path={value.path}
-                    render={props => (
-                      <value.component {...props} routes={value.routes} />
-                    )}
-                  />
-                );
-              } else {
-                return (
-                  <Route
-                    key={key}
-                    path={value.path}
-                    render={props => (
-                      <value.component
-                        {...props}
-                        setLoginInfo={this.setLoginInfo}
-                        loginInfo={this.state.loginInfo}
-                        routes={value.routes}
-                      />
-                    )}
-                  />
-                );
-              }
-            })}
-            {this.state.showLoginPanel && (
-              <LoginPanel
-                setLoginInfo={this.setLoginInfo}
-                loginInfo={this.state.loginInfo}
-                closeLogin={this.closeLogin}
-              />
-            )}
+            {
+              router.map((value, key) => {
+                if (value.exact) {
+                  return (
+                    <Route
+                      key={key}
+                      exact
+                      path={value.path}
+                      render={props => (
+                        <value.component {...props} routes={value.routes} />
+                      )}
+                    />
+                  );
+                } else {
+                  return (
+                    <Route
+                      key={key}
+                      path={value.path}
+                      render={props => (
+                        <value.component
+                          {...props}
+                          setLoginInfo={this.setLoginInfo}
+                          loginInfo={this.state.loginInfo}
+                          routes={value.routes}
+                        />
+                      )}
+                    />
+                  );
+                }
+              })
+            }
+            {
+              showLoginPanel && (
+                <LoginPanel
+                  setLoginInfo={this.setLoginInfo}
+                  loginInfo={this.state.loginInfo}
+                  closeLogin={this.closeLogin}
+                />
+              )
+            }
           </Content>
           <Footer
             style={{
